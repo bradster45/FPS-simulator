@@ -6,6 +6,8 @@ from db.models import (
     Weapon,
     Player,
     Team,
+    Match,
+    Map,
 )
 
 
@@ -51,4 +53,17 @@ def initialise_team(team_name: str):
     return Team(
         name=team_name,
         players=players,
+    )
+
+
+def initialise_map():
+    return Map('Hanger', 20, 10)
+
+
+def initialise_match():
+    match_map = initialise_map()
+    return Match(
+        team_1=initialise_team('Team 1'),
+        team_2=initialise_team('Team 2'),
+        map=match_map,
     )

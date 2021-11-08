@@ -79,8 +79,33 @@ class Team():
         return f'Team {self.name}'
 
 
+class Map():
+    name = 'default'
+    columns = 0
+    rows = 0
+
+    def __init__(self, name, cols, rows):
+        self.name = name
+        self.columns = cols
+        self.rows = rows
+
+    def assemble_board(self, ):
+        board = []
+        for x in range(self.rows):
+            row = ''
+            for y in range(self.columns):
+                row = row + ' - '
+            board.append(row)
+        return board
+
+
 class Match():
     team_1 = Team
     team_2 = Team
 
-    # def simulate_match():
+    map = Map
+
+    def __init__(self, team_1, team_2, map) -> None:
+        self.team_1 = team_1
+        self.team_2 = team_2
+        self.map = map
