@@ -25,7 +25,6 @@ lethal_weapons = initialise_weapons(['Grenade', 'Throwing knife'], 4)
 
 def initialise_loadout():
     primary = copy.deepcopy(random.choice(primary_weapons))
-    # primary.name = 'tits'
     return Loadout(
         primary=primary,
         secondary=random.choice(secondary_weapons),
