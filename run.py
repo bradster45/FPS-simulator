@@ -1,11 +1,13 @@
+from db.models import MatchSimulationThread
 from initialize.generation import initialise_match
 
 
-def run():
-    match = initialise_match()
-    match.simulate_gunfights(400)
-    match.show_leaderboard()
-    pass
+# initial match setup
+match = initialise_match()
+match.simulate_match()
 
+match.map.display_board()
 
-run()
+thread = MatchSimulationThread(match)
+thread.running_speed = 2.0
+thread.start()
